@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var task2 = require('./routes/task2');
 
 // DataBase
 var mysql = require("mysql");
@@ -48,8 +49,9 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use('/', index);
+app.use('/Task1', index);
 app.use('/users', users);
+app.use('/Task2', task2);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
