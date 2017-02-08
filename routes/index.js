@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
         time: "19:00",
         temperature: 18,
         rainfall: 20.50,
+        err: ""
       })
 });
 
