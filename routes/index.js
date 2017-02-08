@@ -13,7 +13,12 @@ router.get('/', function(req, res, next) {
       }
       var data = rows;
       res.json({
-        data: data
+        place: ["台南", "永康"],
+        weatherName: "陰天",
+        data: "2017-2-7",
+        time: "19:00",
+        temperature: 18,
+        rainfall: 20.50,
       })
   });
 });
