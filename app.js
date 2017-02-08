@@ -8,6 +8,27 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+// DataBase
+var mysql = require("mysql");
+
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "PenguinRun",
+    password: "1234",
+    database: "WeatherApp"
+});
+
+console.log("hihi")
+
+
+con.connect(function(err) {
+    if (err) {
+        console.log('connecting error');
+        return;
+    }
+    console.log('connecting success');
+});
+
 var app = express();
 
 // view engine setup
@@ -21,6 +42,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function(req, res, next) {
+    req.con = con;
+    next();
+});
 
 app.use('/', index);
 app.use('/users', users);
