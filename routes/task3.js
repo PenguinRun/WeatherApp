@@ -15,7 +15,7 @@ router.post('/', function(req, res, err){
     dataTime:{
       data: "2017-2-7",
       time: "19:00",
-    }
+    },
     temperature: 18,
     rainfall: 20.50,
     err:""
