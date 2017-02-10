@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, err){
+  var id =req.headers.id;
+  if (id === "1"){
   res.setHeader('content-type', 'application/json')
   res.json({
     place: {
@@ -18,6 +20,13 @@ router.get('/', function(req, res, err){
     imgURL: "http://static2.ithome.com.tw/uploads/image-upload/53dba76e4d84c.jpg",
     err: ""
   })
+}else{
+  res.json({
+    err: "sorry, your header id is not equal 1, please change the header id"
+  })
+}
+
+
 })
 
 

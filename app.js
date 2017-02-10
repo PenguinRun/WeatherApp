@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
+var task1 = require('./routes/task1');
 var users = require('./routes/users');
 var task2 = require('./routes/task2');
 var task3 = require('./routes/task3');
@@ -51,7 +51,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use('/Task1', index);
+app.use('/Task1', task1);
 app.use('/users', users);
 app.use('/Task2', task2);
 app.use('/Task3', task3);
