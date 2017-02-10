@@ -12,8 +12,8 @@ router.post('/', function(req, res, err){
       placeName: "永康"
     },
     weatherName: "陰天",
-    dataTime:{
-      data: "2017-2-7",
+    dateTime:{
+      date: "2017-2-7",
       time: "19:00",
     },
     temperature: 18,
