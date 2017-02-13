@@ -1,34 +1,24 @@
 var express = require('express');
 var router = express.Router();
+var weatherData = require('../model/weatherData');
 var formidable = require('formidable');
-
-
-router.post('/', function(req, res, err){
+/* POST task4 page. */
+router.post('/', function(req, res, err) {
   var form = new formidable.IncomingForm();
-  form.parse(req, function(err, fields, files){
+  form.parse(req, function(err, fields, files) {
     var place = fields.place;
     if (place === "永康") {
-
-    res.json({
-      result: "您剛剛輸入的地點是[" + place + "]!",
-      place: {
-        areaName: "台南",
-        placeName: "永康"
-      },
-      weatherName: "陰天",
-      dateTime:{
-        date: "2017-2-7",
-        time: "19:00",
-      },
-      temperature: 18,
-      rainfall: 20.50,
-      err:""
-    })
-  }else{
       res.json({
-        err: "sorry, 沒有place為[" + place + "]的資料"
-      });
-  }
+        result: "您剛剛輸入的地點是[" + place + "]!",
+        weatherData
+      })
+    } else {
+      res.writeHead(404);
+      res.write(JSON.stringify({
+        err: "sorry, 沒有place為[" + place + "]的資料，請輸入[永康]試試看。"
+      }));
+      res.end();
+    }
   })
   return;
 })

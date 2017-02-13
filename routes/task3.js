@@ -1,25 +1,23 @@
 var express = require('express');
 var router = express.Router();
-
-router.post('/', function(req, res, err){
+var weatherData = require('../model/weatherData');
+/* POST task3 page. */
+router.post('/', function(req, res, err) {
   var data = {
     place: req.body.place,
   }
-  res.json({
-    result: "您剛剛輸入的地點是[" + data.place + "]!",
-    place: {
-      areaName: "台南",
-      placeName: "永康"
-    },
-    weatherName: "陰天",
-    dateTime:{
-      date: "2017-2-7",
-      time: "19:00",
-    },
-    temperature: 18,
-    rainfall: 20.50,
-    err:""
-  });
+  if (data.place === "永康") {
+    res.json({
+      result: "您剛剛輸入的地點是[" + data.place + "]!",
+      weatherData
+    })
+  } else {
+    res.writeHead(404);
+    res.write(JSON.stringify({
+      err: "sorry, 沒有place為[" + data.place + "]的資料，請輸入[永康]試試看。"
+    }));
+    res.end();
+  }
 })
 
 
