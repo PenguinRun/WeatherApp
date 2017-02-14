@@ -6,7 +6,8 @@ router.get('/', function(req, res, next) {
   var id = req.query.id;
   if (id === "1") {
     res.json({
-      weatherData
+      weatherData,
+      err: ""
     })
   } else {
     res.writeHead(400);

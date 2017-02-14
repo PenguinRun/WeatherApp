@@ -9,7 +9,8 @@ router.post('/', function(req, res, err) {
   if (data.place === "永康") {
     res.json({
       result: "您剛剛輸入的地點是[" + data.place + "]!",
-      weatherData
+      weatherData,
+      err: ""
     })
   } else {
     res.writeHead(404);
