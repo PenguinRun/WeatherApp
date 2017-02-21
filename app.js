@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var task2 = require('./routes/task2');
 var task3 = require('./routes/task3');
 var task4 = require('./routes/task4');
+var task5 = require('./routes/task5');
 
 // DataBase
 var mysql = require("mysql");
@@ -56,6 +57,7 @@ app.use('/users', users);
 app.use('/Task2', task2);
 app.use('/Task3', task3);
 app.use('/Task4', task4);
+app.use('/Task5', task5);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
