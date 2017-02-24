@@ -5,7 +5,7 @@ var formidable = require('formidable');
 router.post('/', function(req, res, err) {
 
   var form = new formidable.IncomingForm();
-  form.uploadDir = './public/uploads';
+  // form.uploadDir = './public/uploads';
   form.parse(req, function(err, imageInfo, files) {
     var place = imageInfo.place;
     var weatherInfo = {
