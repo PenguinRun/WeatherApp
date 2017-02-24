@@ -9,7 +9,7 @@ router.get('/', function(req, res, err) {
       weatherData,
       err: ""
     })
-  }else {
+  } else {
     res.writeHead(400);
     res.write(JSON.stringify({
       err: "sorry, your header id is not equal 1, please change the header id"
