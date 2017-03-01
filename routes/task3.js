@@ -1,25 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var weatherData = require('../model/weatherData');
+var weather = require('../controllers/Task3Contraller');
 /* POST task3 page. */
-router.post('/', function(req, res, err) {
-  var data = {
-    place: req.body.place,
-  }
-  if (data.place === "永康") {
-    res.json({
-      result: "您剛剛輸入的地點是[" + data.place + "]!",
-      weatherData,
-      err: ""
-    })
-  } else {
-    res.writeHead(404);
-    res.write(JSON.stringify({
-      err: "sorry, 沒有place為[" + data.place + "]的資料，請輸入[永康]試試看。"
-    }));
-    res.end();
-  }
-})
+var Task3 = new weather();
 
+router.post('/', Task3.postData);
 
 module.exports = router;

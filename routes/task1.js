@@ -1,21 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var weatherData = require('../model/weatherData');
+var weather = require('../controllers/Task1Contraller');
 /* GET task1 page. */
-router.get('/', function(req, res, next) {
-  var id = req.query.id;
-  if (id === "1") {
-    res.json({
-      weatherData,
-      err: ""
-    })
-  } else {
-    res.writeHead(400);
-    res.write(JSON.stringify({
-      err: "sorry, your query id is not equal 1, please change the query id"
-    }));
-    res.end();
-  }
-});
-
+var Task1 = new weather();
+router.get('/', Task1.getData);
 module.exports = router;
