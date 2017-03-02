@@ -1,4 +1,4 @@
-var WeatherData = require('../model/weatherData');
+var weatherData = require('../model/weatherData');
 /* POST task3 page. */
 module.exports= class ContrTask3 {
   postData(req, res, next){
@@ -8,7 +8,7 @@ module.exports= class ContrTask3 {
   if (data.place === "永康") {
     res.json({
       result: "您剛剛輸入的地點是[" + data.place + "]!",
-      WeatherData,
+      weatherData,
       err: ""
     })
     return;

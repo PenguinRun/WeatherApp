@@ -1,4 +1,4 @@
-var WeatherData = require('../model/weatherData');
+var weatherData = require('../model/weatherData');
 var formidable = require('formidable');
 
 module.exports = class ContrTask4 {
@@ -9,7 +9,7 @@ module.exports = class ContrTask4 {
       if (place === "永康") {
         res.json({
           result: "您剛剛輸入的地點是[" + place + "]!",
-          WeatherData,
+          weatherData,
           err: ""
         })
       } else {

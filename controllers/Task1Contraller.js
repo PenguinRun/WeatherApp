@@ -1,11 +1,11 @@
-var WeatherData = require('../model/weatherData');
+var weatherData = require('../model/weatherData');
 /* GET task1 page. */
 module.exports = class ContrTask1 {
   getData(req, res, next){
     var id = req.query.id;
     if (id === "1") {
       res.json({
-        WeatherData,
+        weatherData,
         err: ""
       });
       return;

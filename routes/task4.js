@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var weather = require('../controllers/Task4Contraller');
+var Weather = require('../controllers/Task4Contraller');
 /* POST task4 page. */
-var Task4 = new weather();
+var Task4 = new Weather();
 
 router.post('/', Task4.postData);
 

@@ -1,20 +1,24 @@
 var formidable = require('formidable');
 /* POST task5 page. */
+
+//檢查 http 過來參數 (imageInfo, files)
+//處理資料，準備結果 (把合法的資料裝到 weatherInfo)
+//回傳結果
+
 module.exports = class ContrTask5 {
   postData(req, res, next){
     var form = new formidable.IncomingForm();
     // form.uploadDir = './public/uploads'; //upload image to server
     form.parse(req, function(err, imageInfo, files) {
       //判斷是否有上傳檔案
-      if (isEmpty(files)) { //如果沒有上傳檔案
-        console.log(JSON.stringify({files}));        res.writeHead(400);
+      if (isEmpty(files) ){ //如果沒有上傳檔案
+        res.writeHead(400);
         res.write(JSON.stringify({
           err: "please choose a file to upload!"
         }));
         res.end();
         return;
       }else{ //如果有上傳檔案
-        console.log(JSON.stringify({files}));
         var weatherInfo = {
           weatherName: imageInfo.weatherName,
           weatherPlace: imageInfo.weatherPlace,
