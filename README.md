@@ -330,7 +330,7 @@ Content-Type: application/json
 
 <font color=CC0000>
 
-#### Error 404(Bad Request)
+#### Error 400(Bad Request)
 </font>
 
 若無圖片上傳，也就是沒有[imgData]的話
