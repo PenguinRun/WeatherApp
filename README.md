@@ -287,6 +287,9 @@ _[Go Top](#weatherapp-api-doc)_
 |rainfall<font color=red>(必填)</font>|Double|form-data|降雨率|
 |imgData<font color=red>(必填)</font>|File|form-data|欲上傳的檔案|
 
+__Note__
+檔案大小上限：3MB。
+
 <font color=#0066FF>
 
 ---
@@ -311,16 +314,14 @@ Response
 Content-Type: application/json
 ```javascript=
 {
-  "connection": "上傳成功！您剛剛傳的檔案為 [1.png]",
-  "result": {
+  "result": "上傳成功！您剛剛傳的檔案為 [1.png]",
+  "weatherInfo": {
     "weatherName": "陰天",
     "weatherPlace": "台南",
-    "weatherDate": "2017/02/26",
-    "weatherTime": "20:30",
-    "temperature": "15",
-    "rainfall": "20",
-    "imgData": "/tmp/upload_438879233129ce498c4bc62ce91ede0a",
-    "fileName": "1.png"
+    "weatherDate": "2017/3/3",
+    "weatherTime": "15:00",
+    "temperature": "40",
+    "rainfall": "12.2"
   },
   "err": ""
 }
@@ -340,11 +341,27 @@ Content-Type: application/json
 }
 ```
 
+若檔案超過3MB的話
+
+```javascript=
+{
+  "err": "請上傳小於3MB的檔案"
+}
+```
+
 若其它參數值沒有輸入
 
 ```javascript=
 {
   "err": "please enter the [:body參數] value"
+}
+```
+
+若輸入的參數值型態其類型未符合要求
+
+```javascript=
+{
+  "err": "please enter the type of :type value in [:body參數]."
 }
 ```
 
